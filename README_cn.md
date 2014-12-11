@@ -4,62 +4,63 @@ GitBook
 [![Build Status](https://travis-ci.org/GitbookIO/gitbook.png?branch=master)](https://travis-ci.org/GitbookIO/gitbook)
 [![NPM version](https://badge.fury.io/js/gitbook.svg)](http://badge.fury.io/js/gitbook)
 
-[Chinese Version](README_cn.md)
+[English Version](README.md)
 
-GitBook is a command line tool (and Node.js library) for building beautiful books using GitHub/Git and Markdown. Here is an example: [Learn Javascript](https://www.gitbook.io/book/GitBookIO/javascript). You can publish book easily online using [gitbook.io](https://www.gitbook.io) and an [editor](https://github.com/GitbookIO/editor) is available for Windows, Mac and Linux. You can follow [@GitBookIO](https://twitter.com/GitBookIO) on Twitter. Complete documentation is available at [help.gitbook.io](http://help.gitbook.io/).
+GitBook 是一个使用 GitHub/Git 和 Markdown 以及 Node.js, 来创建排版良好的书籍的命令行工具. 这里有一个例子 (译者: 英文书籍): [Learn Javascript](https://www.gitbook.io/book/GitBookIO/javascript). 你可以使用 [gitbook.io](https://www.gitbook.io) 在网络上简单的发布书籍， 以及一个编辑器 [editor](https://github.com/GitbookIO/editor), 适用于Windows, Mac 以及 Linux. 你可以关注 [@GitBookIO](https://twitter.com/GitBookIO) on Twitter. 完整的文档在这里 [help.gitbook.io](http://help.gitbook.io/).
 
 ![Image](https://raw.github.com/GitbookIO/gitbook/master/preview.png)
 
-## How to use it:
+## 如何使用:
 
-GitBook can be installed from **NPM** using:
+GitBook 可以通过 **NPM** 来安装:
 
 ```
 $ npm install gitbook -g
 ```
 
-Create the directories and files for a book from its [SUMMARY.md](https://github.com/GitbookIO/gitbook#book-format) file using 
+创建目录和位于其下的 [SUMMARY.md](https://github.com/GitbookIO/gitbook#book-format) 文件: 
+
 ```
 $ gitbook init
 ```
 
-You can serve a repository as a book using:
+可以为你的书创建一个服务:
 
 ```
 $ gitbook serve ./repository
 ```
 
-Or simply build the static website using:
+或者生成一系列静态网页:
 
 ```
 $ gitbook build ./repository --output=./outputFolder
 ```
 
-Options for commands `build` and `serve` are:
+`build`和`serve`的选项命令如下:
 
 ```
--o, --output <directory>  Path to output directory, defaults to ./_book
--f, --format <name>       Change generation format, defaults to site, availables are: site, page, ebook, json
---config <config file>    Configuration file to use, defaults to book.js or book.json
+-o, --output <directory>  输出的默认目录，默认是./_book
+-f, --format <name>       改变生成的格式，默认是网页。可以是site, page, ebook, json
+--config <config file>    使用的配置文件, 默认是 book.js 或者 book.json
 ```
 
-GitBook loads the default configuration from a `book.json` file in the repository if it exists.
+GitBook 从书籍目录中的`book.json`读取默认配置 -- 当然, 如果它存在的话.
 
-Here are the options that can be stored in this file:
+这些是可以保存在文件中的选项.
+
+(译者注: 如果使用json, 记得删除注释, 即 `//` 的行)
 
 ```js
 {
-    // Folders to use for output
-    // Caution: it overrides the value from the command line
-    // It's not advised this option in the book.json
+    // 输出的目录
+    // 小心: 在命令行下，它将会覆盖之前的值
     "output": null,
 
-    // Generator to use for building
-    // Caution: it overrides the value from the command line
-    // It's not advised this option in the book.json
+    // 创建所用的生成器
+    // 小心: 在命令行下，它将会覆盖之前的值
     "generator": "site",
 
-    // Book metadats (somes are extracted from the README by default)
+    // 书的相关信息 (一部分会从README中默认读取)
     "title": null,
     "description": null,
     "isbn": null,
@@ -260,3 +261,4 @@ You can use the environment variable `DEBUG=true` to get better error messages (
 $ export DEBUG=true
 $ gitbook build ./
 ```
+
